@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:MenuBar xmlns:mx="http://www.adobe.com/2006/mxml" labelField="@label" click="itemClickHandler(selectedIndex);">
+	<mx:dataProvider>
+		<mx:XMLList id="menuXML">
+	        <menuitem label="New Game" data="newGame" />
+	        <menuitem label="Settings" data="settings" />
+	        <menuitem label="High Scores" data="highScores" />
+	        <menuitem label="About" data="about" />
+	    </mx:XMLList>
+    </mx:dataProvider>
+    <mx:Script>
+    	<![CDATA[
+    		import pblocks.PaperblocksGame;
+    		import mx.controls.menuClasses.MenuBarItem;
+    		import mx.events.MenuEvent;
+    		private function itemClickHandler(index:int):void
+    		{
+    			if(-1 == index)
+    			{
+    				return;
+    			}
+    			this.selectedIndex = -1;
+    			// get the data field this way because top level buttons are broken
+    			switch(dataProvider.getItemAt(index).@data.toString())
+    			{
+    				case "newGame":
+    					parentDocument.gameController.startGame();
+    					break;
+    				case "settings":
+    					PaperblocksGame(parentDocument).launchWindow(SettingsWindow);
+    					break;
+    				case "highScores":
+    					PaperblocksGame(parentDocument).launchWindow(HighScoresWindow);
+    					break;
+    				case "about":
+    					PaperblocksGame(parentDocument).launchWindow(AboutWindow);
+    					break;
+    			}
+    		}
+    	]]>
+    </mx:Script>
+</mx:MenuBar>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" title="Settings">
+	<mx:TabNavigator height="240">
+		<mx:Form label="Display">
+			<mx:FormItem label="Windows">
+				<mx:Grid>
+					<mx:GridRow width="100%" height="100%">
+						<mx:GridItem width="100%" height="100%">
+							<mx:CheckBox label="Show Top View" id="topViewCheck"
+								selected="{game.showTopViewWindow}"
+								change="game.showTopViewWindow = topViewCheck.selected;" />
+						</mx:GridItem>
+						<mx:GridItem width="100%" height="100%">
+							<mx:CheckBox label="Show Next Block" id="nextBlockCheck"
+								selected="{game.showNextBlockWindow}"
+								change="game.showNextBlockWindow = nextBlockCheck.selected;"/>
+						</mx:GridItem>
+					</mx:GridRow>
+					<mx:GridRow width="100%" height="100%">
+						<mx:GridItem width="100%" height="100%">
+							<mx:CheckBox label="Show Side View" id="sideViewCheck"
+								selected="{game.showSideViewWindow}"
+								change="game.showSideViewWindow = sideViewCheck.selected;"/>
+						</mx:GridItem>
+						<mx:GridItem width="100%" height="100%">
+							<mx:CheckBox label="Show Game Stats" id="gameStatsCheck"
+								selected="{game.showGameStatsWindow}"
+								change="game.showGameStatsWindow = gameStatsCheck.selected;"/>
+						</mx:GridItem>
+					</mx:GridRow>
+				</mx:Grid>
+			</mx:FormItem>
+			<mx:FormItem label="Block Opacity">
+				<mx:HSlider minimum="0" maximum="1.0" liveDragging="true" allowTrackClick="true" width="238"
+					id="blockOpacitySlider" value="{game.gameController.blockOpacity}"
+					change="game.gameController.blockOpacity = blockOpacitySlider.value"/>
+			</mx:FormItem>
+			<mx:FormItem label="Visual Cues">
+				<mx:CheckBox label="Color by Depth" id="colorByDepthCheck"
+					selected="{game.gameController.colorByDepth}" 
+					change="game.gameController.colorByDepth = colorByDepthCheck.selected;"/>
+				<mx:CheckBox label="Show Side Walls" id="sideWallsCheck"
+					selected="{game.gameController.showSideWalls}"
+					change="game.gameController.showSideWalls = sideWallsCheck.selected;"/>
+				<mx:CheckBox label="Show FPS" id="fpsCheck"
+					selected="{game.gameView.showFPS}"
+					change="game.gameView.showFPS = fpsCheck.selected;"/>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:Form label="Game">
+			<mx:FormItem label="Note" width="100%">
+				<mx:Text text="Changes in these settings will only be reflected at the start of a new game." width="100%" height="30"/>
+			</mx:FormItem>
+			<mx:FormItem label="Grid Width">
+				<mx:NumericStepper id="widthStepper" value="{game.gameController.numBlocksXNext}"
+					change="game.gameController.numBlocksXNext = widthStepper.value;" minimum="4" maximum="24" stepSize="1"/>
+			</mx:FormItem>
+			<mx:FormItem label="Grid Depth">
+				<mx:NumericStepper id="depthStepper" value="{game.gameController.numBlocksZNext}"
+					change="game.gameController.numBlocksZNext = depthStepper.value;" minimum="4" maximum="24" stepSize="1"/>
+			</mx:FormItem>
+			<mx:FormItem label="Grid Height">
+				<mx:NumericStepper id="heightStepper"  value="{game.gameController.numBlocksYNext}"
+					change="game.gameController.numBlocksYNext = heightStepper.value;" minimum="4" maximum="24" stepSize="1"/>
+			</mx:FormItem>
+			<mx:FormItem label="Blockset">
+				<mx:ComboBox id="blocksetCombo" dataProvider="{game.gameController.availableBlocksets}" labelField="label"
+					selectedIndex="{game.gameController.getBlocksetIndex(game.gameController.blocksetNext)}"
+					change="game.gameController.blocksetNext = game.gameController.getBlockset(blocksetCombo.selectedIndex);"></mx:ComboBox>
+			</mx:FormItem>
+		</mx:Form>
+		<mx:Form label="Controls">
+			<mx:FormItem label="Camera Rotation">
+				<mx:Label text="Mouse Click + Drag"/>
+			</mx:FormItem>
+			<mx:FormItem label="Camera Distance">
+				<mx:Label text="Mouse Wheel"/>
+			</mx:FormItem>
+			<mx:FormItem label="Restore Default View">
+				<KeyPicker id="defaultViewKeyPicker" keyCode="{game.gameView.restoreViewKey}"
+					change="game.gameView.restoreViewKey = defaultViewKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Move Block Up">
+				<KeyPicker id="moveUpKeyPicker" keyCode="{game.gameView.moveUpKey}"
+					change="game.gameView.moveUpKey = moveUpKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Move Block Down">
+				<KeyPicker id="moveDownKeyPicker" keyCode="{game.gameView.moveDownKey}"
+					change="game.gameView.moveDownKey = moveDownKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Move Block Left">
+				<KeyPicker id="moveLeftKeyPicker" keyCode="{game.gameView.moveLeftKey}"
+					change="game.gameView.moveLeftKey = moveLeftKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Move Block Right">
+				<KeyPicker id="moveRightKeyPicker" keyCode="{game.gameView.moveRightKey}"
+					change="game.gameView.moveRightKey = moveRightKeyPicker.keyCode"/>
+			</mx:FormItem>
+			<mx:FormItem label="Lower Block">
+				<KeyPicker id="lowerKeyPicker" keyCode="{game.gameView.lowerBlockKey}"
+					change="game.gameView.lowerBlockKey = lowerKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Rotate Block CW Around X-Axis">
+				<KeyPicker id="rotateCWXKeyPicker" keyCode="{game.gameView.rotateCWXKey}"
+					change="game.gameView.rotateCWXKey = rotateCWXKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Rotate Block CCW Around X-Axis">
+				<KeyPicker id="rotateCCWXKeyPicker" keyCode="{game.gameView.rotateCCWXKey}"
+					change="game.gameView.rotateCCWXKey = rotateCCWXKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Rotate Block CW Around Y-Axis">
+				<KeyPicker id="rotateCWYKeyPicker" keyCode="{game.gameView.rotateCWYKey}"
+					change="game.gameView.rotateCWYKey = rotateCWYKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Rotate Block CCW Around Y-Axis">
+				<KeyPicker id="rotateCCWYKeyPicker" keyCode="{game.gameView.rotateCCWYKey}"
+					change="game.gameView.rotateCCWYKey = rotateCCWYKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Rotate Block CW Around Z-Axis">
+				<KeyPicker id="rotateCWZKeyPicker" keyCode="{game.gameView.rotateCWZKey}"
+					change="game.gameView.rotateCWZKey = rotateCWZKeyPicker.keyCode;"/>
+			</mx:FormItem>
+			<mx:FormItem label="Rotate Block CCW Around Z-Axis">
+				<KeyPicker id="rotateCCWZKeyPicker" keyCode="{game.gameView.rotateCCWZKey}"
+					change="game.gameView.rotateCCWZKey = rotateCCWZKeyPicker.keyCode;"/>
+			</mx:FormItem>
+		</mx:Form>
+	</mx:TabNavigator>
+</PaperblocksWindow>

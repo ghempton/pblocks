@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cross-domain-policy>
+    <allow-access-from domain="*.vupe.net"/>
+    <allow-access-from domain="*.designbyparts.com"/>
+	<allow-access-from domain="*.pblocks.com"/>
+	<allow-access-from domain="*.paperblock.com"/>
+</cross-domain-policy>

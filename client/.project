@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>pblocks</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>com.adobe.flexbuilder.project.flexbuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>com.adobe.flexbuilder.project.flexnature</nature>
+		<nature>com.adobe.flexbuilder.project.actionscriptnature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>[source path] as3ds-src</name>
+			<type>2</type>
+			<location>C:/Users/Gordon/Documents/Projects/as3ds/src</location>
+		</link>
+		<link>
+			<name>[source path] GreatWhite-src</name>
+			<type>2</type>
+			<location>C:/Users/Gordon/Documents/Projects/Papervision/branches/GreatWhite/src</location>
+		</link>
+		<link>
+			<name>bin-release</name>
+			<type>2</type>
+			<location>C:/Users/Gordon/Documents/Projects/pblocks/server</location>
+		</link>
+		<link>
+			<name>bin-debug</name>
+			<type>2</type>
+			<location>C:/Users/Gordon/Documents/Projects/pblocks/server</location>
+		</link>
+	</linkedResources>
+</projectDescription>

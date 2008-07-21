@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="0x0099cc" layout="absolute" xmlns:ns1="pblocks.*" frameRate="60"
+	preloader="pblocks.preloader.PaperblocksPreloader" >
+	<mx:Style source="pblocks/style/paperblocks.css" />
+	<ns1:PaperblocksGame width="100%" height="100%" >
+	</ns1:PaperblocksGame>
+</mx:Application>

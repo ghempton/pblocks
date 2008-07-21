@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="400" height="300" title="High Scores" creationComplete="loadScores();">
+	<mx:DataGrid id="highScoresGrid" width="100%" height="100%">
+		<mx:columns>
+			<mx:DataGridColumn headerText="Name" dataField="name" />
+			<mx:DataGridColumn headerText="Score" dataField="score" />
+			<mx:DataGridColumn headerText="Mode" dataField="mode" />
+			<mx:DataGridColumn headerText="Level" dataField="level" />
+			<mx:DataGridColumn headerText="Date" dataField="date" />
+		</mx:columns> 
+	</mx:DataGrid>
+	<mx:Script>
+		<![CDATA[
+			private static const POLICY_FILE_URL:String = "http://pblocks.com/crossdomain.xml";
+			private static const HIGHSCORES_URL:String =  "http://pblocks.com/highscores.php";
+		
+			public var saveScoreName:String = null;
+		
+			private function loadScores():void
+			{
+				var urlRequest:URLRequest = new URLRequest(HIGHSCORES_URL);
+				if(null != saveScoreName)
+				{
+					Security.loadPolicyFile(POLICY_FILE_URL);
+					var variables:URLVariables = new URLVariables();
+					variables.save = 1;
+					variables.name = saveScoreName;
+					variables.blockset = game.gameController.blocksetInstance.name;
+					variables.score = game.gameController.score;
+					variables.blocksPlayed = game.gameController.blocksPlayed;
+					variables.level = game.gameController.level;
+					variables.width = game.gameController.numBlocksX;
+					variables.height = game.gameController.numBlocksY;
+					variables.depth = game.gameController.numBlocksZ;
+					urlRequest.data = variables;
+					// set the saveScoreName to null so it wont save again
+					saveScoreName = null;
+				}
+				var loader:URLLoader = new URLLoader();
+				loader.addEventListener(Event.COMPLETE, loadCompleteHandler);
+				loader.load(urlRequest);
+			}
+			
+			private function loadCompleteHandler(e:Event):void
+			{
+				trace(e.target.data);
+				var xml:XML = new XML(e.target.data);
+				highScoresGrid.dataProvider = xml.HighScores.HighScore;
+			}
+		]]>
+	</mx:Script>
+</PaperblocksWindow>

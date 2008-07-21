@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" x="20" y="20" title="Top View" xmlns:view="pblocks.view.*" xmlns:pblocks="pblocks.*" creationComplete="trace(width,height);">
+	<view:TopView width="100" height="100" gameController="{game.gameController}">
+	</view:TopView>
+</PaperblocksWindow>

@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Canvas xmlns:mx="http://www.adobe.com/2006/mxml" xmlns:pblocks="pblocks.*" xmlns:view="pblocks.view.*" xmlns:ui="pblocks.ui.*" styleName="test">
+	<pblocks:PaperblocksController id="gameController" creationComplete="creationCompleteHandler(event);" gameOver="gameOverHandler(event);">
+	</pblocks:PaperblocksController>
+	<view:GameView id="gameView" gameController="{gameController}" width="100%" height="100%">
+	</view:GameView>
+	<mx:ApplicationControlBar left="0" bottom="0">
+		<mx:Image source="@Embed(source='pblocks/style/logo.png')"/>
+		<ui:MainMenu>
+		</ui:MainMenu>
+	</mx:ApplicationControlBar>
+	<mx:Script>
+		<![CDATA[
+			import flash.utils.getQualifiedClassName;
+			import pblocks.ui.WelcomeWindow;
+			import mx.core.IFlexDisplayObject;
+			import pblocks.ui.GameOverWindow;
+			import mx.events.FlexEvent;
+			import pblocks.ui.GameStatsWindow;
+			import pblocks.ui.PaperblocksWindow
+			import pblocks.ui.NextBlockWindow;
+			import pblocks.ui.SideViewWindow;
+			import pblocks.ui.TopViewWindow;
+			import mx.managers.PopUpManager;
+			import pblocks.events.PaperblocksEvent;
+			
+			private var _openedWindows:Dictionary = new Dictionary();
+			
+			[Bindable]
+			public function get showTopViewWindow():Boolean
+			{
+				return isWindowOpen(TopViewWindow);
+			}
+			public function set showTopViewWindow(b:Boolean):void
+			{
+				showHideWindow(TopViewWindow, b);
+			}
+			
+			[Bindable]
+			public function get showSideViewWindow():Boolean
+			{
+				return isWindowOpen(SideViewWindow);
+			}
+			public function set showSideViewWindow(b:Boolean):void
+			{
+				showHideWindow(SideViewWindow, b);
+			}
+			
+			[Bindable]
+			public function get showNextBlockWindow():Boolean
+			{
+				return isWindowOpen(NextBlockWindow);
+			}
+			public function set showNextBlockWindow(b:Boolean):void
+			{
+				showHideWindow(NextBlockWindow, b);
+			}
+			
+			[Bindable]
+			public function get showGameStatsWindow():Boolean
+			{
+				return isWindowOpen(GameStatsWindow);
+			}
+			public function set showGameStatsWindow(b:Boolean):void
+			{
+				showHideWindow(GameStatsWindow, b);
+			}
+			
+			private function creationCompleteHandler(e:FlexEvent):void
+			{
+				showTopViewWindow = true;
+				showSideViewWindow = true;
+				showNextBlockWindow = true;
+				showGameStatsWindow = true;
+				launchWindow(WelcomeWindow, true);
+			}
+			
+			private function gameOverHandler(e:PaperblocksEvent):void
+			{
+				launchWindow(GameOverWindow, true);
+			}
+			
+			public function showHideWindow(windowClass:Class, show:Boolean, modal:Boolean=false, centered:Boolean=false):void
+			{
+				if(show)
+				{
+					launchWindow(windowClass, modal,centered);
+				}
+				else
+				{
+					closeWindow(windowClass);
+				}
+			}
+			
+			// TODO: Make sure windows are never outside of the screen area (i.e. if they decrease browser size)
+			public function launchWindow(windowClass:Class, modal:Boolean = false, centered:Boolean=true):PaperblocksWindow
+			{
+				return showWindow(getWindow(windowClass), modal, centered);
+			}
+			
+			public function getWindow(windowClass:Class):PaperblocksWindow
+			{
+				// only one window of each class can be open at a time
+				if(_openedWindows[windowClass] != null)
+				{
+					return _openedWindows[windowClass] as PaperblocksWindow;
+				}
+				var window:PaperblocksWindow = new windowClass();
+				window.game = this;
+				return window;
+			}
+			
+			public function showWindow(window:PaperblocksWindow, modal:Boolean = false, centered:Boolean=true):PaperblocksWindow
+			{
+				PopUpManager.addPopUp(window, this, modal);
+				if(centered)
+				{
+					PopUpManager.centerPopUp(window);
+				}
+				_openedWindows[window.windowClass] = window;
+				return window;
+			}
+			
+			public function closeWindow(windowClass:Class):void
+			{
+				if(_openedWindows[windowClass] != null)
+				{
+					PopUpManager.removePopUp(_openedWindows[windowClass]);
+					_openedWindows[windowClass] = null;
+				}
+				focusManager.setFocus(gameView);
+			}
+			
+			public function isWindowOpen(windowClass:Class):Boolean
+			{
+				return _openedWindows[windowClass] != null;
+			}
+		]]>
+	</mx:Script>
+</mx:Canvas>

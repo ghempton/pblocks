@@ -1,0 +1,1 @@
+To build paperblocks, the sourcepath must include the papervision 2.0 library (Great White branch) as well as as3ds by polygonal labs.

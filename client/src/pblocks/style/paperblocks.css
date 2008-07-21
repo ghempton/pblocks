@@ -1,0 +1,10 @@
+/* CSS file */
+Application
+{
+	borderSkin: ClassReference("pblocks.style.BackgroundSkin");
+}
+
+PaperblocksWindow
+{
+	backgroundColor: #efefef;
+}

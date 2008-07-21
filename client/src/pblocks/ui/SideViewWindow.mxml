@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" layout="absolute" x="20" y="180" title="Side View" xmlns:view="pblocks.view.*">
+	<view:SideView gameController="{game.gameController}" width="100" height="{game.gameController.numBlocksY * 20}">
+	</view:SideView>
+</PaperblocksWindow>

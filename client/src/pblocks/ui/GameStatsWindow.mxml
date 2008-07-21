@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" width="120" creationComplete="this.x = game.width - this.width - 20" y="180" title="Game Stats">
+	<mx:VBox width="100%">
+		<mx:Label text="Level" textAlign="center" width="100%" fontWeight="bold"/>
+		<mx:Label text="{game.gameController.level}" textAlign="center" width="100%"/>
+		<mx:Label text="Score" textAlign="center" width="100%" fontWeight="bold"/>
+		<mx:Label text="{game.gameController.score}" textAlign="center" width="100%"/>
+		<mx:Label text="Layers Left" textAlign="center" width="100%" fontWeight="bold"/>
+		<mx:Label text="{game.gameController.layersRemaining}" textAlign="center" width="100%"/>
+		<mx:Label text="Blocks Played" textAlign="center" width="100%" fontWeight="bold"/>
+		<mx:Label text="{game.gameController.blocksPlayed}" textAlign="center" width="100%"/>
+	</mx:VBox>
+</PaperblocksWindow>

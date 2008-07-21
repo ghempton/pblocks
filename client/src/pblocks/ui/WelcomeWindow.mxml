@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" title="Welcome">
+	<mx:Text width="280" height="160">
+		<mx:htmlText>
+			<![CDATA[
+<p>Welcome to PaperBlocks! Use the menu in the bottom left hand corner of the screen to start a new game!</p>
+<p>Try and fill in layers of the grid by moving the blocks. Refer to Settings -> Controls for instructions on how to move the current piece.</p>
+<p>TIP: If you move the camera, press home to return it to its orginal position.</p>
+			]]>
+		</mx:htmlText>
+	</mx:Text>
+	<mx:HBox width="100%" horizontalAlign="center">
+		<mx:Button label="Ok" click="close();"/>
+	</mx:HBox>
+	
+</PaperblocksWindow>

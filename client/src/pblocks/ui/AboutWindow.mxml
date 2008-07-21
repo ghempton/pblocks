@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" title="About">
+	<mx:Text width="240" height="100">
+		<mx:htmlText>
+			<![CDATA[
+<p>Paperblocks v1.0</p>
+<p>Created by Gordon L. Hempton, <a href="mailto:ghempton@gmail.com">ghempton@gmail.com</a>.</p>
+			]]>
+		</mx:htmlText>
+	</mx:Text>
+</PaperblocksWindow>
