@@ -6,6 +6,7 @@ package pblocks.mat
 	import flash.utils.Dictionary;
 	
 	import org.papervision3d.core.geom.renderables.Triangle3D;
+	import org.papervision3d.core.render.command.RenderTriangle;
 	import org.papervision3d.core.render.data.RenderSessionData;
 	
 	import pblocks.util.Color;
@@ -33,8 +34,9 @@ package pblocks.mat
 			_colors = new Dictionary(true);
 		}
 		
-		public override function drawTriangle(face3D:Triangle3D, graphics:Graphics, renderSessionData:RenderSessionData, altBitmap:BitmapData=null, altUV:Matrix=null):void
+		public override function drawTriangle(renderTri:RenderTriangle, graphics:Graphics, renderSessionData:RenderSessionData, altBitmap:BitmapData=null, altUV:Matrix=null):void
 		{
+			var face3D:Triangle3D = renderTri.triangle;
 			if(_colors[face3D] == null)
 			{
 				// determine which of the alternate colors we are going to use
@@ -47,7 +49,7 @@ package pblocks.mat
 				_colors[face3D] = alternate == 0 ? _color1 : _color2;
 			}
 			fillColor = _colors[face3D];
-			super.drawTriangle(face3D, graphics, renderSessionData, altBitmap, altUV);
+			super.drawTriangle(renderTri, graphics, renderSessionData, altBitmap, altUV);
 		}
 	}
 }

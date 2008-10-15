@@ -4,7 +4,7 @@ package pblocks.view
 	
 	import mx.core.UIComponent;
 	
-	import org.papervision3d.cameras.FreeCamera3D;
+	import org.papervision3d.cameras.Camera3D;
 	import org.papervision3d.core.math.Number3D;
 	import org.papervision3d.core.proto.CameraObject3D;
 	import org.papervision3d.objects.DisplayObject3D;
@@ -108,7 +108,7 @@ package pblocks.view
 		
 		protected function initializeCamera():void
 		{
-			_camera = new FreeCamera3D();
+			_camera = new Camera3D();
 			_camera.focus = _canonicalFocus;
 			_lookTarget = scene.gameCenter;
 		}

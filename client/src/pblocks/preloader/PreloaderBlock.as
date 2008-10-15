@@ -17,9 +17,9 @@ package pblocks.preloader
 		private var _isoX:Number = 0.0;
 		private var _isoY:Number = 0.0;
 		private var _isoZ:Number = 0.0;
-		private var _isoWidth:Number = 4.0;
-		private var _isoHeight:Number = 4.0;
-		private var _isoDepth:Number = 4.0;
+		private var _isoWidth:Number = 12.0;
+		private var _isoHeight:Number = 12.0;
+		private var _isoDepth:Number = 12.0;
 		
 		public function PreloaderBlock()
 		{

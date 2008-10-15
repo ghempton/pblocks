@@ -9,6 +9,7 @@ package pblocks.mat
 	import org.papervision3d.core.geom.renderables.Vertex3D;
 	import org.papervision3d.core.material.TriangleMaterial;
 	import org.papervision3d.core.math.Number3D;
+	import org.papervision3d.core.render.command.RenderTriangle;
 	import org.papervision3d.core.render.data.RenderSessionData;
 	import org.papervision3d.core.render.draw.ITriangleDrawer;
 	
@@ -39,8 +40,9 @@ package pblocks.mat
 			lineColor = Color.darken(c, 0.5);
 		}
 		
-		public override function drawTriangle(face3D:Triangle3D, graphics:Graphics, renderSessionData:RenderSessionData, altBitmap:BitmapData=null, altUV:Matrix=null):void
+		public override function drawTriangle(renderTri:RenderTriangle, graphics:Graphics, renderSessionData:RenderSessionData, altBitmap:BitmapData=null, altUV:Matrix=null):void
 		{
+			var face3D:Triangle3D = renderTri.triangle;
 			// find the corner vertex
 			var vert1:Vertex3D, vert2:Vertex3D, vert3:Vertex3D;
 			var minVal:Number = Number.MAX_VALUE;

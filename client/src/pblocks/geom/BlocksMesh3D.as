@@ -273,7 +273,8 @@ package pblocks.geom
 			meshPivot = new Number3D(0.0, pivotX.x, pivotX.y);
 			
 			// tween the mesh for a visual cue, the block grid is already rotated
-			_rotTween = new Tween(this, _meshContainer.rotationX, _meshContainer.rotationX + dir * Math.PI / 2, ROTATION_DURATION);
+			// TODO: we had to change the direction of the tween when we updated papervsion for some reason
+			_rotTween = new Tween(this, _meshContainer.rotationX, _meshContainer.rotationX + -dir * Math.PI / 2, ROTATION_DURATION);
 			_rotTween.easingFunction = Circular.easeOut;
 			_rotTween.setTweenHandlers(function(r:Number):void {_meshContainer.rotationX = r;}, finishRotationHandler);
 		}

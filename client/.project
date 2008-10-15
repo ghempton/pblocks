@@ -17,22 +17,12 @@
 	</natures>
 	<linkedResources>
 		<link>
-			<name>[source path] as3ds-src</name>
-			<type>2</type>
-			<location>C:/Users/Gordon/Documents/Projects/as3ds/src</location>
-		</link>
-		<link>
-			<name>[source path] GreatWhite-src</name>
-			<type>2</type>
-			<location>C:/Users/Gordon/Documents/Projects/Papervision/branches/GreatWhite/src</location>
-		</link>
-		<link>
-			<name>bin-release</name>
+			<name>bin-debug</name>
 			<type>2</type>
 			<location>C:/Users/Gordon/Documents/Projects/pblocks/server</location>
 		</link>
 		<link>
-			<name>bin-debug</name>
+			<name>bin-release</name>
 			<type>2</type>
 			<location>C:/Users/Gordon/Documents/Projects/pblocks/server</location>
 		</link>

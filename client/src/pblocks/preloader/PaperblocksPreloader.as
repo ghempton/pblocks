@@ -20,7 +20,7 @@ package pblocks.preloader
 	 */
 	public class PaperblocksPreloader extends Sprite implements IPreloaderDisplay
 	{
-		private const _blockSize:Number = 12.0;
+		private const _blockSize:Number = 18.0;
 		private const _blockWidth:uint = 3;
 		private const _blockHeight:uint = 7;
 		private const _blockDepth:uint = 3;

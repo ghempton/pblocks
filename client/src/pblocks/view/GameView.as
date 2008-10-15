@@ -114,7 +114,7 @@ package pblocks.view
 		{
 			cameraPhi = _maxPhi;
 			cameraTheta = -Math.PI / 2;
-			cameraRadius = _minRadius + gameController.gameHeight;
+			cameraRadius = _minRadius + gameController.gameHeight + _camera.focus;
 		}
 		
 		public function get cameraPhi():Number
