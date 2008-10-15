@@ -4,7 +4,8 @@
 		<mx:XMLList id="menuXML">
 	        <menuitem label="New Game" data="newGame" />
 	        <menuitem label="Settings" data="settings" />
-	        <menuitem label="High Scores" data="highScores" />
+	        <!-- Moved high score logic to Kongregate -->
+	        <!--<menuitem label="High Scores" data="highScores" />-->
 	        <menuitem label="About" data="about" />
 	    </mx:XMLList>
     </mx:dataProvider>

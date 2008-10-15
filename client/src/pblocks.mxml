@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <mx:Application xmlns:mx="http://www.adobe.com/2006/mxml" backgroundColor="0x0099cc" layout="absolute" xmlns:ns1="pblocks.*" frameRate="60"
-	preloader="pblocks.preloader.PaperblocksPreloader" >
+	preloader="pblocks.preloader.PaperblocksPreloader" addedToStage="addedToStageHandler(event);" width="700" height="600" >
 	<mx:Style source="pblocks/style/paperblocks.css" />
 	<ns1:PaperblocksGame width="100%" height="100%" >
 	</ns1:PaperblocksGame>
+	<mx:Script>
+		<![CDATA[
+			import com.kongregate.as3.client.KongregateAPI;
+			import mx.events.FlexEvent;
+			private function addedToStageHandler(e:Event):void
+			{
+				trace("Connecting to Kongregate");
+				var kongregate:KongregateAPI = new KongregateAPI();
+				stage.addChild(kongregate);
+			}
+		]]>
+	</mx:Script>
 </mx:Application>

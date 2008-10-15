@@ -3,8 +3,9 @@
 	<mx:Text width="240" height="100">
 		<mx:htmlText>
 			<![CDATA[
-<p>Paperblocks v1.0</p>
+<p>Paperblocks v1.0 </p>
 <p>Created by Gordon L. Hempton, <a href="mailto:ghempton@gmail.com">ghempton@gmail.com</a>.</p>
+<p>Check out my blog <a href="http://blog.hempton.com">here</a>.</p>
 			]]>
 		</mx:htmlText>
 	</mx:Text>

@@ -10,7 +10,7 @@
 		</mx:htmlText>
 	</mx:Text>
 	<mx:HBox width="100%" horizontalAlign="center">
-		<mx:Button label="Ok" click="close();"/>
+		<mx:Button label="Ok" click="close();game.gameController.startGame();"/>
 	</mx:HBox>
 	
 </PaperblocksWindow>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PaperblocksWindow xmlns="pblocks.ui.*" xmlns:mx="http://www.adobe.com/2006/mxml" title="GameOver" creationComplete="creationCompleteHandler(event);">
+	<mx:Label text="Your score of {game.gameController.score} has been submitted to the Kongregate highscore list!"/>
+	<mx:HBox width="100%" horizontalAlign="right">
+		<mx:Button label="Ok" click="close();"/>
+	</mx:HBox>
+	
+	<mx:Script>
+		<![CDATA[
+			import com.kongregate.as3.client.KongregateAPI;
+			private function creationCompleteHandler(e:Event):void
+			{
+				var kongregate:KongregateAPI = KongregateAPI.getInstance();
+				var mode:String = game.gameController.blocksetInstance.name + " " + game.gameController.numBlocksX + "x" + game.gameController.numBlocksZ + "x" + game.gameController.numBlocksY;
+				kongregate.scores.submit(game.gameController.score, mode);
+			}
+		]]>
+	</mx:Script>
+	
+</PaperblocksWindow>

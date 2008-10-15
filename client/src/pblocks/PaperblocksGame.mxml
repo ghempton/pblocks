@@ -11,6 +11,7 @@
 	</mx:ApplicationControlBar>
 	<mx:Script>
 		<![CDATA[
+			import pblocks.ui.KongregateGameOverWindow;
 			import flash.utils.getQualifiedClassName;
 			import pblocks.ui.WelcomeWindow;
 			import mx.core.IFlexDisplayObject;
@@ -77,7 +78,7 @@
 			
 			private function gameOverHandler(e:PaperblocksEvent):void
 			{
-				launchWindow(GameOverWindow, true);
+				launchWindow(KongregateGameOverWindow, true);
 			}
 			
 			public function showHideWindow(windowClass:Class, show:Boolean, modal:Boolean=false, centered:Boolean=false):void
